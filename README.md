@@ -269,33 +269,33 @@ calculateRoughtBoundingCubes(): We use it to calculate cube points. If we never 
 
 calculateMask(): We can use it for calculate perspective mask location from birds-eye View.
 
-draw3DBoundingCube():
+draw3DBoundingCube(): This function will be draw 3D Bounding Cube.
 
-drawScanning():
+drawScanning(): It's for scanning effect to draw Cube.
 
-takeProfileSelfie():
+takeProfileSelfie(): We use it to give up if it doesn't sure which lane it's on if the bad detection will occur then Vehicle Tracking Module will reject it. We can solve False Positive Problem with it.
 
 7. VehicleTracking
 
-__init__():
+__init__(): It's just VehicleTracking Class Constructor.
 
-isVehicleThere():
+isVehicleThere(): This function check the vehicle is real for process False Negative. If the real Vehicle on the road then it return true else return false.
 
 8. VehicleDetection
 
-__init__():
+__init__(): It's VehicleDetection Class Constructor. Anyway we use trained data at /trained/*.pkl and /trained/scaler/*.pkl. 
 
-set_threshold():
+set_threshold(): It's just setter of new threshold.
 
-bin_spatial():
+bin_spatial(): We use it to compute binned color features. cv2.resize().revel() will be create the feature vector and it will be return this feature vector.
 
-color_hist():
+color_hist(): Compute Color Histogram Features. We compute it each color channels separately. And concatenate the histograms into a single feature vector.
 
-get_hog_features():
+get_hog_features(): This function will return HOG Features and Visualization. 
 
-extract_features():
+extract_features(): We use it to extract features from a list of images. It will call bin_spatial() and color_hist().
 
-slidingWindows():
+slidingWindows(): This function will be generate specialized Sliding Window.
 
 draw_boxes():
 
