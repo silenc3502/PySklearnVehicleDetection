@@ -58,29 +58,31 @@ This function is getter that can get all of parameters.
 
 2. ImageFilters
 
-__init__():
+__init__(): This function do Camera Calibration and save parameters at mtx, dist, img_size.
+And initialize value for processing video(Sky, Road Division, and Brightness info).
+However this values doesn't have any meaningful value, just zero.
 
-makehalf():
+makehalf(): This function divide image half based on horizontal. It helps to divide Sky and Ground.
 
-makefull():
+makefull(): This function is the result of merging the makehalf() and get rid of the Sky Image.
 
-image_only_yellow_white():
+image_only_yellow_white(): This function helps to masking Yellow and White lane lines. So we can detect the multiple lane of roads.
 
-gaussian_blur():
+gaussian_blur(): It's for applying Guassian Blurring for reduce noise of image and video.
 
-canny():
+canny(): It's for Canny Edge Filter with Thresholding.
 
-abs_sobel_thresh():
+abs_sobel_thresh(): This mechanism use Sobel X and Y Filter to detect gradient. Gradient Based System has good to detect variation rate.
 
-mag_thresh():
+mag_thresh(): This function calculate magnitude of gradients. We can calculate it with Pythagoras Theorem. After calculating apply this Thresholding.
 
-dir_threshold():
+dir_threshold(): This function calculate Direction of the Gradients. And apply it for Thresholding.
 
-miximg():
+miximg(): This mechanism is same as Blending.
 
-hls_s():
+hls_s(): We can convert RGB to HLS and extract S Channel of HLS with this function.
 
-hls_h():
+hls_h(): We can convert RGB to HLS and extract H Channel of HLS with this function.
 
 edges():
 
