@@ -379,23 +379,23 @@ drawLaneStats(): It's for write Status of Lane.
 
 11. DiagManager
 
-__init__():
+__init__(): Just Constructor.
 
-textOverlay():
+textOverlay(): It's for show Textural Diagnostics.
 
-fullDiag():
+fullDiag(): It's for Full Diagnostics of Road Manager.
 
-projectionHD():
+projectionHD(): It's for Diagnostics of Projection Manager.
 
-projectionDiag():
+projectionDiag(): Same as projectionHD(). However it has more information about diagnostics. And it's for debugging.
 
-filterDiag():
+filterDiag(): It's for Diagnostics of Image Filters.
 
 12. Main
 
-process_road_image():
+process_road_image(): We can use option to this function to make various diagnostics or just result.
 
-process_image():
+process_image(): Just call cv2.resize() and process_road_image().
 
 
 
