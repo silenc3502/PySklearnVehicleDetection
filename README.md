@@ -47,10 +47,21 @@ YUV1 give highest test accuracy and HLS1 give fastest decision time.
 
 # Sliding Window Search
 
-First We make half image to make Sliding Window.
+This is our initial Sliding Window Pattern.
 
-![Half](./results/2.png)
+![InitSWP](./results/InitialSlidingWindowTest.jpg)
 
+We'll use Linear SVM Classifier.
+However it needs many time and CPU resources.
+So we have to reduce Sliding Window.
+And it can make Fault Positive and Fault Negative too.
+That's the reason using Kernel Trick.
+It explained at http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html.
+Main idea is making higher dimension to make model linearly.
+Something like circle's equations or sphere's equations.
+
+![Idea](./results/3.png)
+![Boundary](./results/4.png)
 
 
 # SW Pipeline Mechanism
