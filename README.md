@@ -295,87 +295,87 @@ get_hog_features(): This function will return HOG Features and Visualization.
 
 extract_features(): We use it to extract features from a list of images. It will call bin_spatial() and color_hist().
 
-slidingWindows(): This function will be generate specialized Sliding Window.
+slidingWindows(): This function will be generate specialized Sliding Window. Looking at Top-Down Birds-Eye View. Need to use the Lane Lines to help generate Sliding Window Locations. First Calculate the Window Positions and Create RoadGrid for Boxes. And treat Left/Right Lanes Differently because of projection.
 
-draw_boxes():
+draw_boxes(): We use it to draw boxes with cv2.rectangle().
 
-drawPlots():
+detectVehicles(): Process an Image and Video with a List of Sliding Window and Try to Detect Vehicles. If not occluded, not found, and there are no vehicle at mapping then try to detect vehicle.
 
-detectVehicles():
-
-collectData():
+collectData(): This function can collect data from images and videos.
 
 9. RoadGrid
 
-__init__():
+__init__(): This is constructor of RoadGrid Class.
 
-map_boxes():
+map_boxes(): We can use it to enforcing some constraints into the road grid. It's just initialize mapping[box].
 
-getMapping():
+getMapping(): Just getter to get mapping[box].
 
-setVehicle():
+setVehicle(): We use it for setting Vehicle. It's for setting index.
 
-setFound():
+setFound(): It's setter function to check 'found' = true if Found Vehicle.
 
-setOccluded():
+setOccluded(): Check 'occluded' = true if Vehicle Occluded.
 
-getKey():
+getKey(): getter that get key value with chr(lane + 65)
 
-getBox():
+getBox(): Get key based mapping[box]
 
-getAllWindows():
+getAllWindows(): Get mapping[map] named 'window'
 
-getBoxWindow():
+getBoxWindow(): Get mapping[box] named 'window'
 
-getFoundWindows():
+getFoundWindows(): Get mapping[map] named 'window' that satisfied condition which one is 'found'.
 
-getOccludedWindows():
+getOccludedWindows(): Get mapping[map] named 'window' that satisfied condition which one is 'occluded'.
 
-getFoundAndNotOccludedWindows():
+getFoundAndNotOccludedWindows(): Get mapping[map] named 'window' that satisfied condition which one is 'found' and not 'occluded'.
 
-getFoundAndNotOccludedWindowsInObject():
+getFoundAndNotOccludedWindowsInObject(): Same as getFoundAndNotOccludedWindows(). However there are some differences that is search from Object.
 
-getFoundAndNotOccludedWindowsInVehicle():
+getFoundAndNotOccludedWindowsInVehicle(): Get mapping[map] named 'window' and map indices comes from keys. And it has condition too. Condition is 'found', not 'occluded' and mapping[map] named 'vehicle' is not None and it's index are same as parameters index.
 
-getFoundAndNotOccludedBoxesInObject():
+getFoundAndNotOccludedBoxesInObject(): Search from Object List and condition is 'found' and not 'occluded'.
 
-getFoundAndNotOccludedBoxesInVehicle():
+getFoundAndNotOccludedBoxesInVehicle(): Similar as getFoundAndNotOccludedWindowsInVehicle(). Difference is it doesn't need 'window' option.
 
-gridCoordinates():
+gridCoordinates(): We can convert number to ASCII with ord(). And this function split based '+' and save one to lane, and the other to y. After split, just return ord(lane) - 65, and y.
 
-gridSize():
+gridSize(): Just return initial value of Class nlanes and maxkey.
 
-generatePolyRay():
+generatePolyRay(): Make Ray with all x, y info and poly1d().
 
-getNumObjects():
+getNumObjects(): Return number of Object List of this Class.
 
-getObjects():
+getObjects(): Return Object List of this Class
 
-getObjectList():
+getObjectList(): Return specify Object List that can choose with index.
 
-getObjectListWindows():
+getObjectListWindows(): Get index from getObjectList(). And return mapping[index] named 'window'.
 
-calculateVoxelOcclusionAndObjectSeparation():
+calculateVoxelOcclusionAndObjectSeparation(): We can use this function to use constrain propagation to limit searching vehicle testing. It use Voxel Occlusion Test to find Occluded Boxes in Grid.
 
-calculateObjectPosition():
+calculateObjectPosition(): We use this function to calculate Object Position.
 
-insertTrackedObject():
+insertTrackedObject(): If we Detect Vehicle and Tracking then we need to manage it. So we use this function.
+
+isOccluded(): Use this function for check occluded.
 
 10. RoadManager
 
-__init__():
+__init__(): It's just constructor of RoadManager Class. Important part is VehicleDetection Constructor and VehicleTracking Constructor.
 
-addLaneLeft():
+addLaneLeft(): If we need some resizing then resize it. And if abs(faint) will bigger than 0.5 or (resized, abs(faint) bigger than 0.4, curLane.adjacentLeft has value and curLane.adjacentLLane has None then ready to add New Left Lane.
 
-addLaneRight():
+addLaneRight(): Same as addLaneLeft(). However it's for Right Lane.
 
-updateLaneLeft():
+updateLaneLeft(): if curLane.adjacentLeft and curLane.adjacentLLane is not None then update Left Lane Information.
 
-updateLaneRight():
+updateLaneRight(): Same as updateLaneLeft(). However it's for Right Lane.
 
-findLanes():
+findLanes(): We have to find Lane first. This function will find Lanes. First apply Image Filters like Gaussian Blur, Sobel X, Y, Canny Edge, Various Gradient Method and etc. And need to check condition for proper processing that is shaded from the other things or note and so on. 
 
-drawLaneStats():
+drawLaneStats(): It's for write Status of Lane.
 
 11. DiagManager
 
