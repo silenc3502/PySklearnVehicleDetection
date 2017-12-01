@@ -116,71 +116,67 @@ drawHorizon(): This function is important to draw Horizontal Line.
 
 3. ProjectionManager
 
-__init__():
+__init__(): This function is the constructor of the ProjectionManager Class. Anyway it saves Camera Calibration info at camCal. And calculate Projection Mask Area and setting it to its own initial value. And save projectedX and projectedY to 1080 and 1920 for Full HD Image and Video. So it can do more good detection.
 
-set_image_filter():
+set_image_filter(): It's just setter for save ImageFilter instance.
 
-region_of_interest():
+region_of_interest(): This function create a ROI for processing our interesting area of Image and Video. Use cv2.fillPoly() and cv2.bitwise_and() to make masked info for proper image processing and video processing.
 
-draw_area_of_interest():
+draw_area_of_interest(): Use cv2.line() to draw the Outline of Interesting Area.
 
-draw_area_of_interest_for_projection():
+draw_area_of_interest_for_projection(): It's almost same as draw_area_of_interest(). However there are some difference that is the thickness of the line for debugging.
 
-draw_masked_area():
+draw_masked_area(): This function is same as draw_area_of_interest().
 
-draw_bounding_box():
+draw_bounding_box(): This function use for make Bounding Box.
 
-draw_parallel_lines_pre_projection():
+draw_parallel_lines_pre_projection(): This function draw parallel lines at the perspective image. It'll be projected at flat plane.
 
-draw_estimated_lane_line_location():
+draw_estimated_lane_line_location(): This function draw Estimated Lane Line with cv2.line().
 
-draw_lines():
+draw_lines(): This function draw lines on the road. We can calculate slope and midpoint.
 
-hough_lines():
+hough_lines(): We can create hough line with this function and calculate estimation of the lane lines. We can use cv2.HoughLinesP() for Hough Transform. This function based on Probabilistic Hough Transform and it returns start point and end point of line. And use draw_lines to draw hough lines.
 
-unwarp_lane():
+unwarp_lane(): We can call this function to just inverse persepctive transform.
 
-unwarp_lane_back():
+unwarp_lane_back(): Same as unwarp_lane(). However it's focus on to project the undistorted image to plane looking down.
 
-find_lane_locations():
+find_lane_locations(): We can use this function to find starting lane line positions. After we found it then return left and right column positions.
 
-hough_lines1():
+hough_lines1(): This function is the custom hough line code for the other parameters.
 
-hough_lines2():
+hough_lines2(): Same as hough lines1()
 
-hough_lines3():
+hough_lines3(): Same as hough lines1()
 
-hough_lines4():
+hough_lines4(): Same as hough lines1()
 
-hough_lines5():
+hough_lines5(): Same as hough lines1()
 
-findInitialRoadCorners():
+findInitialRoadCorners(): We can use this function to find initial road corners to find a projection matrix. After we find corners then we can project edges into a plane. First we make vertices and make masking area to use region_of_interest(). After it, we use hough_lines() series to detect line image and lane info. After that process, we can calculate the Area of Interesting.
 
-project():
+project(): This function makes edge projection at the Image plane. Process is same as findInitialRoadCorners() likes make vertices and masking edges. So we can get the Area of Interesting then now generate gray scaled image and full color projection image. Now we use cv2.solvePnP() to estimation the pose.
 
-curWarp():
+curWarp(): Inverse Perspective Transform function.
 
-curUnWarp():
+curUnWarp(): Perspective Transform function
 
-setSrcTop():
+setSrcTop(): We use it to avoid damping of car and the road.
 
-setSrcTopX():
+setSrcTopX(): Same as setSrcTop().
 
-resetDestTop():
+resetDestTop(): Same as setSrcTop(). However there are some difference that is the condition. If top is too low then reset it.
 
-pixel2Meter():
+pixel2Meter(): Pixel to meter distance converter function
 
-wireframe():
+wireframe(): This function's role is same as OpenGL's Graphic Library. np.poly1d() is 1 Dimension Polynomial Function to make various eqautions. We use it to fit road of left and right. After it we setting Horizontal lines with cv2.line() and calculate Vertical lines.
 
-sweep():
+projectPoints(): We can use Z info to make Birds-Eye View to 3D Format by this function. 
 
-drawAxisOnLane():
+drawCalibrationCube(): This function draw 3D Cube with above informations like corner locations. And we use cv2.drawContours() to get outline for drawing bottom and top of cube. And use cv2.line() to draw sides of cube.
 
-projectPoints():
-
-drawCalibrationCube():
-
-drawRoadSquares():
+drawRoadSquares(): We can draw the squares at the road with this function.
 
 4. Lane
 
