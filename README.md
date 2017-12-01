@@ -63,6 +63,18 @@ Something like circle's equations or sphere's equations.
 ![Idea](./results/3.png)
 ![Boundary](./results/4.png)
 
+And we use various technique(Image Filters, Projection: Undistortion, Calibration, Inverse Perspective Transform, and so on) to make these images.
+
+![Wow](./results/5.png)
+
+Each functions detailed concept is explained at below SW Pipelien Mechanism.
+
+
+
+# Video Simulation
+
+
+
 
 # SW Pipeline Mechanism
 We have many main classes to implement this function.
