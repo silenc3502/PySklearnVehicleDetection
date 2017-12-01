@@ -98,22 +98,160 @@ applyFilter1(): This is the Filter Combination. Sobel X Filter with Threshold(25
 
 applyFilter2(): It's for Sobel X Filter with Threshold(25, 100), Sobel Y Filter with Threshold(50, 150), Magnitude of Gradient with Threshold(50, 250), Direction of Gradient with Threshold(0.7, 1.3), S channel from RGB to HLS Converter with Threshold(88, 250), and H Channel from RGB to HLS Converter with Threshold(50, 100).
 
-applyFilter3():
+applyFilter3(): It's for Sobel X Filter with Threshold(25, 100), Sobel Y Filter with Threshold(50, 150), Magnitude of Gradient with Threshold(30, 150), Direction of Gradient with Threshold(0.6, 1.3), S channel from RGB to HLS Converter with Threshold(20, 100), and H Channel from RGB to HLS Converter with Threshold(125, 175).
 
-applyFilter4():
+applyFilter4(): It's for Sobel X Filter with Threshold(30, 100), Sobel Y Filter with Threshold(75, 150), Magnitude of Gradient with Threshold(30, 150), Direction of Gradient with Threshold(0.6, 1.3), S channel from RGB to HLS Converter with Threshold(20, 100), and H Channel from RGB to HLS Converter with Threshold(125, 175).
 
-applyFilter5():
+applyFilter5(): It's for Sobel X Filter with Threshold(25, 100), Sobel Y Filter with Threshold(50, 150), Magnitude of Gradient with Threshold(30, 150), Direction of Gradient with Threshold(0.5, 1.3), S channel from RGB to HLS Converter with Threshold(20, 80), and H Channel from RGB to HLS Converter with Threshold(130, 175).
 
-setEdgeProjection():
+setEdgeProjection(): This function use for setting the edge projection.
 
-getEdgeProjection():
+getEdgeProjection(): Get the edge projection.
 
-setRoadProjection():
+setRoadProjection(): This function use for setting full road projection image.
 
-getRoadProjection():
+getRoadProjection(): This is getter of above function.
 
-drawHorizon():
+drawHorizon(): This function is important to draw Horizontal Line.
 
 3. ProjectionManager
 
+__init__():
 
+set_image_filter():
+
+region_of_interest():
+
+draw_area_of_interest():
+
+draw_area_of_interest_for_projection():
+
+draw_masked_area():
+
+draw_bounding_box():
+
+draw_parallel_lines_pre_projection():
+
+draw_estimated_lane_line_location():
+
+draw_lines():
+
+hough_lines():
+
+unwarp_lane():
+
+unwarp_lane_back():
+
+find_lane_locations():
+
+hough_lines1():
+
+hough_lines2():
+
+hough_lines3():
+
+hough_lines4():
+
+hough_lines5():
+
+findInitialRoadCorners():
+
+project():
+
+curWarp():
+
+curUnWarp():
+
+setSrcTop():
+
+setSrcTopX():
+
+resetDestTop():
+
+pixel2Meter():
+
+wireframe():
+
+sweep():
+
+drawAxisOnLane():
+
+projectPoints():
+
+drawCalibrationCube():
+
+drawRoadSquares():
+
+4. Lane
+
+__init__():
+
+confidence():
+
+setLineIndex():
+
+getLineIndex():
+
+getLineBasePos():
+
+drawLanePoly():
+
+getRadiusOfCurvature():
+
+setMaskDelta():
+
+findInitialLines():
+
+calculateXCenter():
+
+bottomY():
+
+findExistingLines():
+
+5. Line
+
+__init__():
+
+createPolyFitLeft():
+
+creatPolyFitRight():
+
+updatePolyFitLeft():
+
+updatePolyFitRight():
+
+findBottomOfLine():
+
+find_lane_nearest_neighbors():
+
+setBasePos():
+
+find_lane_lines_points():
+
+scatter_plot():
+
+polyline():
+
+fitpoly():
+
+fitpoly2():
+
+applyLineMask():
+
+applyReverseLineMask():
+
+getLineStats():
+
+getTopPoint():
+
+requestTopY();
+
+setMaskDelta():
+
+radius_in_meters():
+
+meters_from_center_of_vehicle():
+
+6. Vehicle
+
+__init__():
