@@ -20,9 +20,20 @@ Here are links to the labeled data for [vehicle](https://s3.amazonaws.com/udacit
 
 # HOG(Histogram of Oriented Gradients)
 
-I use this github data(https://github.com/diyjac/SDC-P5) for HOG training.
+We use this github data(https://github.com/diyjac/SDC-P5) for HOG training.
 
 ![this](./results/1.png)
+
+Above link has vehicleLab data.
+So we use it to training.
+vehicleLab has many HOG features.
+Anyway, We select CHOGYUV1 and CHOGHLS1 for final HOG features.
+Below picture shows CHOGYUV1 HOG Features.
+
+![CHOGYUV1](./results/CHOGYUV1.jpg)
+
+![CHOGHLS1](./results/CHOGHLS1.jpg)
+
 
 
 # SW Pipeline Mechanism
