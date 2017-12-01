@@ -32,7 +32,24 @@ Below picture shows CHOGYUV1 HOG Features.
 
 ![CHOGYUV1](./results/CHOGYUV1.jpg)
 
+CHOGYUV1 HOG features can be trained by vehicleLab/chogtrainingYUV1.py.
+We explored YUV Color Space with Y Channel as primary HOG Channel.
+
 ![CHOGHLS1](./results/CHOGHLS1.jpg)
+
+CHOGHLS1 HOG features can be trained by vehicleLab/chogtrainingHLS1.py.
+We explored HLS Color Space with S Channel as primary HOG Channel.
+
+Finally we select CHOGYUV1 and CHOGHLS1 HOG Features.
+YUV1 give highest test accuracy and HLS1 give fastest decision time.
+
+
+
+# Sliding Window Search
+
+First We make half image to make Sliding Window.
+
+![Half](./results/2.png)
 
 
 
