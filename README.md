@@ -45,11 +45,73 @@ Now, let's understand each classes.
 1. CameraCal
 
 __init__():
+This function makes matrix to undist image for undistortion and save this parameters.
 
 setImageSize():
+This function save image size at img_size.
 
 get():
+This function is getter that can get mtx, dist, img_size for undistortion.
 
 getall():
+This function is getter that can get all of parameters.
+
+2. ImageFilters
+
+__init__():
+
+makehalf():
+
+makefull():
+
+image_only_yellow_white():
+
+gaussian_blur():
+
+canny():
+
+abs_sobel_thresh():
+
+mag_thresh():
+
+dir_threshold():
+
+miximg():
+
+hls_s():
+
+hls_h():
+
+edges():
+
+imageQ():
+
+horizonDetect():
+
+projectionThrowDistanceDetect():
+
+balanceEx():
+
+applyFilter1():
+
+applyFilter2():
+
+applyFilter3():
+
+applyFilter4():
+
+applyFilter5():
+
+setEdgeProjection():
+
+getEdgeProjection():
+
+setRoadProjection():
+
+getRoadProjection():
+
+drawHorizon():
+
+3. ProjectionManager
 
 
