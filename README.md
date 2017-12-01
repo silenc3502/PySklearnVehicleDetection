@@ -73,7 +73,10 @@ Each functions detailed concept is explained at below SW Pipelien Mechanism.
 
 # Video Simulation
 
+This is the results of video.
+You can get same results as 'vehicle-detect.ipynb'.
 
+![result](./results/6.gif)
 
 
 # SW Pipeline Mechanism
