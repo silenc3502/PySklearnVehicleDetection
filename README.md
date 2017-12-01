@@ -2,16 +2,6 @@
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 
-In this project, your goal is to write a software pipeline to detect vehicles in a video (start with the test_video.mp4 and later implement on full project_video.mp4), but the main output or product we want you to create is a detailed writeup of the project.  Check out the [writeup template](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup.  
-
-Creating a great writeup:
----
-A great writeup should include the rubric points as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
-
-All that said, please be concise!  We're not looking for you to write a book here, just a brief description of how you passed each rubric point, and references to the relevant code :). 
-
-You can submit your writeup in markdown or use another method and submit a pdf instead.
-
 The Project
 ---
 
@@ -25,15 +15,6 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 Here are links to the labeled data for [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) and [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip) examples to train your classifier.  These example images come from a combination of the [GTI vehicle image database](http://www.gti.ssr.upm.es/data/Vehicle_database.html), the [KITTI vision benchmark suite](http://www.cvlibs.net/datasets/kitti/), and examples extracted from the project video itself.   You are welcome and encouraged to take advantage of the recently released [Udacity labeled dataset](https://github.com/udacity/self-driving-car/tree/master/annotations) to augment your training data.  
-
-Some example images for testing your pipeline on single frames are located in the `test_images` folder.  To help the reviewer examine your work, please save examples of the output from each stage of your pipeline in the folder called `ouput_images`, and include them in your writeup for the project by describing what each image shows.    The video called `project_video.mp4` is the video your pipeline should work well on.  
-
-**As an optional challenge** Once you have a working pipeline for vehicle detection, add in your lane-finding algorithm from the last project to do simultaneous lane-finding and vehicle detection!
-
-**If you're feeling ambitious** (also totally optional though), don't stop there!  We encourage you to go out and take video of your own, and show us how you would implement this project on a new video!
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
 
 
@@ -180,113 +161,113 @@ drawRoadSquares(): We can draw the squares at the road with this function.
 
 4. Lane
 
-__init__():
+__init__(): It's just constructor of Lane Class and sharing liens.
 
-confidence():
+confidence(): We can calculate the confidence of left and right. And we choose most small one.
 
-setLineIndex():
+setLineIndex(): It's setter of the left/right indices.
 
-getLineIndex():
+getLineIndex(): It is getter of above function.
 
-getLineBasePos():
+getLineBasePos(): We use it for combine the lineBasePos.
 
-drawLanePoly():
+drawLanePoly(): We can draw the lane polygon with this function.
 
-getRadiusOfCurvature():
+getRadiusOfCurvature(): This function calculate the radius of curvature.
 
-setMaskDelta():
+setMaskDelta(): It's setter of maskDelta.
 
-findInitialLines():
+findInitialLines(): We'll use this function to find starting lane line positions. First use getEdgeProjection() to get Masking Edges and get initial points into the lines. After it we can get the points with find_lane_lines_points(). And we can fit it with fitpoly(). Nowm classify the line and finish to fitting.
 
-calculateXCenter():
+calculateXCenter(): This function can calculate the center of x position with given y. So this function use poly1d().
 
-bottomY():
+bottomY(): We can calculate bottom y with this function.
 
-findExistingLines():
+findExistingLines(): This function can mask lane line positions. First we setting Left / Right Lane Line Projection, measurement it and doing some adjustment.
 
 5. Line
 
-__init__():
+__init__(): Just constructor of the Line Class.
 
-createPolyFitLeft():
+createPolyFitLeft(): Use this function to make adjacent lane lines with existing right lane.
 
-creatPolyFitRight():
+creatPolyFitRight(): Same as createPolyFitLeft(). However change right to left and left to right.
 
-updatePolyFitLeft():
+updatePolyFitLeft(): We use this function to update adjacent lane lines with existing right lane. First we need to increase our pixel count to keep line detection. So internally, this function do it too.
 
-updatePolyFitRight():
+updatePolyFitRight(): Same as updatePolyFitLeft(). However change each right and left.
 
-findBottomOfLine():
+findBottomOfLine(): This function will be use to find bottom of projection that is Camera Cone.
 
-find_lane_nearest_neighbors():
+find_lane_nearest_neighbors(): We use this function to find lane line positions given histogram row, last column positions and n_neighbors return column positions. 
 
-setBasePos():
+setBasePos(): This is just setter of basePos.
 
-find_lane_lines_points():
+find_lane_lines_points(): Use this function to find Lane Lines points using a Sliding Window Histogram given starting position return arrays x and y positions.
 
-scatter_plot():
+scatter_plot(): We use this function to draw circle with cv2.circle()
 
-polyline():
+polyline(): Use it to draw fitted polyline with cv2.polylines().
 
-fitpoly():
+fitpoly(): We use this function to fitting Lane Lines. And it's default parameter is second order polynomial equations. Use for initialization when first start up. One more case is when Lane Line was lost the it'll be do same thing.
 
-fitpoly2():
+fitpoly2(): Same as fitpoly()
 
-applyLineMask():
+applyLineMask(): Use it for apply Lane Masking.
 
-applyReverseLineMask():
+applyReverseLineMask(): Use it for Reverse Lane Masking
 
-getLineStats():
+getLineStats(): We use this function to sampling line color. extract R, G, B Channel at image. And Mixing with Masking Edge and each Color Channels. And check various condition to setting proper status.
 
-getTopPoint():
+getTopPoint(): We can get ths top point of the detected line with this function.
 
-requestTopY();
+requestTopY(): Just for setting new line.
 
-setMaskDelta():
+setMaskDelta(): We use this function to reset the mask delta for dynamically adjust masking curve.
 
-radius_in_meters():
+radius_in_meters(): This is just converter about x and y form pixel spaces to meter.
 
-meters_from_center_of_vehicle():
+meters_from_center_of_vehicle(): We use it for define conversion in x off center from pixel space to meters given lane line separation in pixels.
 
 6. Vehicle
 
-__init__():
+__init__(): This is the constructor of Vehicle Class. We save ProjectionManager, RoadGrid instance, and so on at here. We need to find Occluded Vehicles and tracking with boxes. So we use roadGrid instance to call getFoundAndNotOccludedWindowsInObject() and getFoundAndNotOccludedBoxesInObject(). And we need to use Voxels. So we use gridCoordinates(), and GetBoxWindow() that has roadGrid instance. And we initialize basic values to detect and track the vehicle.
 
-updateVehicle():
+updateVehicle(): We use this function to tracking vehicles. It will be update vehicle status before tracking. Check the Lane and Location in the Voxel Grid the Vehicle is on. After setting all values then change the detected value to 'True'. It means now we will be tracking the vehicle.
 
-closest_colour():
+closest_colour(): This function will classify the vehicle by its color.
 
-get_colour_name():
+get_colour_name(): We can get the color name from webcolors.rgb_to_name(). It'll be give us most closest color that the components color.
 
-madeColor():
+madeColor(): This function is just for coloring about each status.
 
-distance():
+distance(): This function returns diagonal distance of x and y offsets by Pythagoras Theorem.
 
-sortByDistance():
+sortByDistance(): Just calling distance().
 
-unwarp_vehicle():
+unwarp_vehicle(): We use it to inverse perspective transform about vehicle. Detaily, this function will be project the undistorted camera image to the plane at side of the vehicle bounding cube.
 
-unwarp_vehicle_back():
+unwarp_vehicle_back(): This function is simillar as unwarp_vehicle(). However it's inverse mechanism.
 
-findCenter():
+findCenter(): This function to find center of projection.
 
-findMaxColor():
+findMaxColor(): We use it to find center of max color.
 
-sampleColor():
+sampleColor(): This function will be use to find color of vehicle. It use webcolor module too.
 
-getTextStats():
+getTextStats(): We'll use it for debugging.
 
-windowCenter():
+windowCenter(): Use if for calculate center of window.
 
-vehicleInBox():
+vehicleInBox(): It's just boolean condition. This function asking just 'Is it in the box or not ?'. If Vehicle is in the box then return true else return false.
 
-objectIsVehicle():
+objectIsVehicle(): If we detect some object and is it vehicle then return true else return false.
 
-drawClosingCircle():
+drawClosingCircle(): It's for special effect to draw circle when we detect.
 
-calculateRoughtBoundingCubes():
+calculateRoughtBoundingCubes(): We use it to calculate cube points. If we never calculate it then first we setting default value at this function. Or we use it past then restore from last estimation. Anyway we can get the points of 2-D Cube or 3-D Cube.
 
-calculateMask():
+calculateMask(): We can use it for calculate perspective mask location from birds-eye View.
 
 draw3DBoundingCube():
 
@@ -415,3 +396,12 @@ filterDiag():
 process_road_image():
 
 process_image():
+
+
+
+#References
+
+1. https://github.com/diyjac/SDC-P5
+2. 
+3. https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/find_contours/find_contours.html
+4. https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html
