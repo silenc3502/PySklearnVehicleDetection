@@ -35,3 +35,21 @@ Some example images for testing your pipeline on single frames are located in th
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
+
+
+#SW Pipeline Mechanism
+We have many main classes to implement this function.
+CameraCal, ImageFilters, ProjectionManager, Lane, Line, Vehicle, VehicleTracking, VehicleDetection, RoadGrid, RoadManager, DiagManager, and Main is the most important class to implement this project.
+Now, let's understand each classes.
+
+1. CameraCal
+
+__init__():
+
+setImageSize():
+
+get():
+
+getall():
+
+
