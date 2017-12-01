@@ -67,7 +67,8 @@ And we use various technique(Image Filters, Projection: Undistortion, Calibratio
 
 ![Wow](./results/5.png)
 
-Each functions detailed concept is explained at below SW Pipelien Mechanism.
+Each functions detailed concept is explained at below SW Pipeline Mechanism.
+This all implements at 'vehicle-detect.ipynb'.
 
 
 
@@ -460,9 +461,30 @@ process_image(): Just call cv2.resize() and process_road_image().
 
 
 
+# Future Works
+
+I feel so bad about my results at this project.
+Because I have very important exam and have to make working reports at this month(Nov).
+So I can't concentrate my last project.
+It's just an excuse.
+Anyway now I can get freedom about exam.
+I'll start to change this algorithm and technique to make this project more improvement.
+I tried it to Korean Highway Road.
+However it's result is too bad to upload here.
+My plan looks like below.
+
+1. Study papers to find improve this situation.
+2. Implement it to python.
+3. Porting it to my TI AM5728 with C/C++, OpenCL and OpenCV.
+
+
+
 # References
 
 1. https://github.com/diyjac/SDC-P5
-2. 
-3. https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/find_contours/find_contours.html
-4. https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html
+2. https://github.com/balancap/SDC-Vehicle-Detection
+3. https://github.com/xslittlegrass/CarND-Vehicle-Detection
+4. https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection
+5. https://github.com/tatsuyah/vehicle-detection
+6. https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/find_contours/find_contours.html
+7. https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html
