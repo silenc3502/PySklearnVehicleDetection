@@ -84,19 +84,19 @@ hls_s(): We can convert RGB to HLS and extract S Channel of HLS with this functi
 
 hls_h(): We can convert RGB to HLS and extract H Channel of HLS with this function.
 
-edges():
+edges(): Detection Edge with Filter Combination.
 
-imageQ():
+imageQ(): Check the condition of the Image or Video for proper process.
 
-horizonDetect():
+horizonDetect(): This function use for detect Horizon with Sobel Magnitude.
 
-projectionThrowDistanceDetect():
+projectionThrowDistanceDetect(): We can use it to find distance of the projection.
 
-balanceEx():
+balanceEx(): This function separate each of RGB color channels and get Y Channel from YUV Color Space. And adjust brightness for more easy to detect lane lines.
 
-applyFilter1():
+applyFilter1(): This is the Filter Combination. Sobel X Filter with Threshold(25, 100), Sobel Y Filter with Threshold(50, 150), Magnitude of Gradient with Threshold(50, 250), Direction of Gradient with Threshold(0.7, 1.3), S channel from RGB to HLS Converter with Threshold(88, 190), and H Channel from RGB to HLS Converter with Threshold(50, 100).
 
-applyFilter2():
+applyFilter2(): It's for Sobel X Filter with Threshold(25, 100), Sobel Y Filter with Threshold(50, 150), Magnitude of Gradient with Threshold(50, 250), Direction of Gradient with Threshold(0.7, 1.3), S channel from RGB to HLS Converter with Threshold(88, 250), and H Channel from RGB to HLS Converter with Threshold(50, 100).
 
 applyFilter3():
 
